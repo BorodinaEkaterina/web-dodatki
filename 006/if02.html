@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block{
+            text-align: center;
+            border: thick double blueviolet;            
+        }
+        p{
+            font-family: verdana;
+            font-size: 25px;
+        }
+        #btn-convert{
+            background-color: #a52aca;
+            color: white;  
+            padding: 15px 32px;  
+            text-align: center;  
+            font-size: 16px;
+        }
+        #a-input{
+            background-color: rgb(235, 223, 248);
+        }
+        #b-input{
+            background-color: rgb(235, 223, 248);
+        }
+        #c-input{
+            background-color: rgb(235, 223, 248);
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+        <p>
+            <input type="number" id="a-input" step="0.1" value="1.0">
+            x <sup>2</sup> +
+            <input type="number" id="b-input" step="0.1" value="0.0">
+            x + 
+            <input type="number" id="c-input" step="0.1" value="0.0">
+            = 0.0
+        </p>
+            <button id="btn-convert">Colve</button>
+        <p id="rezult">...</p>  
+    </div>
+    <script>
+        let a_input = document.getElementById("a-input");
+        let b_input = document.getElementById("b-input");
+        let c_input = document.getElementById("c-input");        
+        let btn_convert = document.getElementById("btn-convert");
+        let rezult = document.getElementById("rezult");
+        
+        function quad(a, b, c) {
+            if(a == 0) return 'Error invalid value а = 0';
+            let D = b * b - 4 * a * c;            
+            let x1,x2;
+            if(D > 0) {
+                x1 = (-b + Math.sqrt(D)) / (2 * a);
+                x2 = (-b - Math.sqrt(D)) / (2 * a);
+                return "x1 = " +x1+  "   ;x2 = " +x2+ "   ;d = " +D;
+            }else if(D == 0) {
+                x1 = -b / (2 * a);
+                return " x1 = " +x1+ "   ;d = " +D;
+            }else if (D < 0) {
+                return "no roots, D = " +D;
+            }
+        }
+                
+        btn_convert.addEventListener('click', () => {
+            //console.log('click');
+            let a = Number(a_input.value);
+            let b = Number(b_input.value);
+            let c = Number(c_input.value);
+            
+            let res = quad(a, b, c);
+            document.getElementById('rezult').textContent = res;  
+        });
+
+    </script>
+</body>
+</html>

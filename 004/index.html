@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="main-title">This is title!</h1>
+    <button id="btn-1">Push me!Green</button>
+    <button id="btn-2">Push me!Red</button>
+
+    <script>
+        let main_title = document.getElementById('main-title');
+        let button1 = document.getElementById('btn-1');
+        let button2 = document.getElementById('btn-2');
+        //console.Log('button1');
+        
+
+        let hander1 = () => {
+            main_title.innerHTML = 'That is title!';
+        main_title.style.color = 'green';
+        main_title.style.textAlign = 'center';
+        main_title.style.fontSize = '100px';
+        }
+        let hander2 = () => {
+            main_title.innerHTML = 'Title!';
+        main_title.style.color = 'red';
+        main_title.style.textAlign = 'right';
+        main_title.style.fontSize = '150px';
+        }
+        button1.addEventListener('click',hander1) ;
+        button2.addEventListener('click',hander2) ;
+    </script>
+</body>
+</html>

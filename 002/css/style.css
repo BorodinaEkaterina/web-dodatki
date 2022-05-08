@@ -1,0 +1,19 @@
+h2{
+    text-align: center;
+}
+.main-header{
+    color: blueviolet;
+    text-align: center;
+}
+p{
+    font-size: 20px;
+}
+img.big{
+    width: 300px;
+    box-shadow: 5px 5px 10px grey;
+}
+img.small{
+    width: 100px;
+    border: 5px solid blueviolet;
+    border-radius: 5px;
+}

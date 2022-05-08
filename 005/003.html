@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block{
+            text-align: center;
+            border: thick double blueviolet;            
+        }
+        p{
+            font-family: verdana;
+            font-size: 25px;
+        }
+        #btn-convert{
+            background-color: #a52aca;
+            color: white;  
+            padding: 15px 32px;  
+            text-align: center;  
+            font-size: 16px;
+        }
+        #a-input{
+            background-color: rgb(235, 223, 248);
+        }
+        #b-input{
+            background-color: rgb(235, 223, 248);
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+        <h2>Type equation ax + b = 0</h2>
+        <p>
+            <input type="number" id="a-input" step="0.1" value="1.0">
+            x +
+            <input type="number" id="b-input" step="0.1" value="0.0">
+            = 0.0
+            </p>
+            <button id="btn-convert">Colve</button>
+            <p id="X-output">...</p>    
+    </div>
+    <script>
+        let a_input = document.getElementById("a-input");
+        let b_input = document.getElementById("b-input");
+        let X_output = document.getElementById("X-output");
+        let btn_convert = document.getElementById("btn-convert");
+
+        let rezult = (a,b) => -b/a;
+
+        btn_convert.addEventListener('click', () => {
+            //console.log('click');
+            let a = Number(a_input.value);
+            let b = Number(b_input.value);
+            let x = rezult(a,b);
+            //console.log(x);
+            X_output.innerHTML = `X =  ${x.toFixed(1)}`;
+        });
+
+    </script>
+</body>
+</html>
