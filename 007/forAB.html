@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #target{
+            border-collapse: collapse;
+            margin-left: 20px;
+        }
+        #target th, td{
+            padding: 2px 20px 2px 20px;
+            border: 2px solid rgb(144, 6, 172);            
+        }
+        #in{
+            margin-left: 5px;
+        }
+        #btn{
+            margin: 0 0 20px 60px;
+            box-shadow: 3px 3px 5px grey;
+        }
+        #tab{
+            width: 250px;
+            border: 1px solid rgb(206, 115, 224);
+            background-color: rgb(250, 244, 235);
+        }
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <p id="in"> y = 
+            <input type="text" id="function" value="2 * a + 3 * b">
+
+        </p>
+        <button id="btn">TABULATE</button>
+        <table id="target">
+            <tr>
+                <th>a</th>
+                <th>b</th>
+                <th>y</th>
+            </tr>
+    </div>
+    </table>
+    <script>
+        var target = document.getElementById("target");
+        var func = document.getElementById("function");
+        var btn = document.getElementById("btn");
+        var a = 0.0;
+        var b = 0.0;
+        var step = 0.2;
+        var stepb = 0.3;
+        var y;
+        var func_str;
+
+        let handler_btn = () =>{
+            a = 0.0;
+            b = 0.0;
+            func_str= func.value;
+            target.innerHTML = '';
+            for(let i = 0; i < 11; i++){
+                y = eval(func_str);
+                var row = document.createElement("tr");
+                var col_a = document.createElement("td");
+                col_a.innerHTML = a.toFixed(1);
+                var col_b = document.createElement("td");
+                col_b.innerHTML = b.toFixed(1);
+                var col_y = document.createElement("td");
+                col_y.innerHTML = y.toFixed(3);
+                row.appendChild(col_a);
+                row.appendChild(col_b);
+                row.appendChild(col_y);
+                target.appendChild(row);
+                a = a + step;
+                b = b + stepb;
+            }
+        }
+        btn.addEventListener('click', handler_btn);
+    </script>
+</body>
+</html>
